@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguros Protege+</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }   
+        header {
+            background: #ffffff;
+            color: rgb(34, 172, 103);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            flex-direction: row;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: rgb(189, 98, 166);
+            text-decoration: none;
+            font-size: 16px;
+            animation: ease-in-out infinite;
+        }
+        nav ul li a:hover {
+            color: rgb(0, 0, 0);
+            animation: ease-in-out;
+        }
+        .hero {
+            display: block; /* Asegura que el elemento pueda centrarse */
+        width: fit-content; /* Ajusta el ancho al contenido */
+        padding: 100px 200px; /* Ajusta el tamaño del fondo */
+        margin: 40px auto; /* Centra horizontalmente */
+        color: rgb(253, 253, 253);
+        border-radius: 10px; 
+        text-align: center;
+        background-image: url('https://segurosccs.cl/wp-content/uploads/2024/07/nota-infografia-poliza-de-seguros.jpg');
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .btn {
+            display: inline-block;
+            background: #ffcc00;
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #e6b800;
+        }
+        .benefits {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .benefit-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .benefit {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            font-size: 16px;
+        }
+        .quote {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input, select, button {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #0056b3;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #003d80;
+        }
+        footer {
+            text-align: center;
+            background: #222;
+            color: white;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+
+
+
+<body>
+    <header>
+        <div class="logo">
+            <a href = "index.html"><img src="images/segtu.png" alt="logo" width="150px" height="50px"></a>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#benefits">Quienes somos</a></li>
+                <li><a href="#quote">Servicios</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>¿Riesgos? Mi espacio seguro te cubre la espalda</h1>
+    </section>
+
+    <section id="benefits" class="benefits">
+        <h2>Beneficios de nuestros seguros</h2>
+        <div class="benefit-list">
+            <div class="benefit">✅ Cobertura médica integral</div>
+            <div class="benefit">✅ Atención las 24 horas</div>
+            <div class="benefit">✅ Flexibilidad en planes</div>
+            <div class="benefit">✅ Asesoramiento personalizado</div>
+        </div>
+    </section>
+
+    <section id="quote" class="quote">
+        <h2>Obtén tu cotización</h2>
+        <form id="quoteForm">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" required>
+            
+            <label for="email">Correo:</label>
+            <input type="email" id="email" required>
+            
+            <label for="type">Mensaje:</label>
+            <input type="text" id="type" required>
+               
+            </select>
+            
+            <button type="submit">Solicitar Cotización</button>
+        </form>
+        <p id="quoteMessage"></p>
+        
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+    (function(){
+        emailjs.init("ryfCcVQmDwZqiAb1W"); // Reemplaza con tu User ID de EmailJS
+    })();
+
+    document.getElementById("quoteForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm("service_jw9vdtn", "template_8i1bn9q", this)
+        .then(function(response) {
+            document.getElementById("quoteMessage").innerText = "✅ Cotización enviada con éxito!";
+        }, function(error) {
+            document.getElementById("quoteMessage").innerText = "❌ Error al enviar la cotización.";
+        });
+    });
+</script>
+
+    </section>
+
+    <footer id="contact">
+        <p>📍 Dirección: Av. Seguros 123, Ciudad</p>
+        <p>📧 Email: contacto@protegeplus.com</p>
+        <p>📞 Teléfono: +123 456 789</p>
+    </footer>
+</body>
+</html>
