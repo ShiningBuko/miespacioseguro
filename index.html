@@ -75,6 +75,11 @@
         .btn:hover {
             background: #e6b800;
         }
+        .benefit-1 {
+            background: #f4f4f9;
+            padding: 50px 20px;
+            flex-direction: column;
+        }
         .benefits {
             text-align: center;
             padding: 50px 20px;
@@ -93,6 +98,78 @@
             width: 200px;
             font-size: 16px;
         }
+        .benefit img {
+            margin-bottom: 10px;
+        }
+        .information {
+         display: flex;
+         flex-direction: column; /* Asegura que los elementos estén en columna */
+         align-items: center; /* Centra todo horizontalmente */
+         justify-content: center; /* Centra verticalmente si el contenedor tiene altura definida */
+         text-align: center;
+         padding: 50px 20px;
+         width: 100%;
+        }
+
+        .information h1 {
+        font-size: 36px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-decoration: overline underline rgb(141, 13, 141);
+        }
+
+        .information p {
+        font-size: 18px;
+        line-height: 1.5;
+        width: 600px;
+        max-width: 80%;
+        text-align: left; /* Asegura que el texto se lea bien junto a la imagen */
+        margin: 10px auto; 
+        display: flex;
+        flex-direction: row; /* Coloca la imagen y el texto en línea */
+        align-items: center; /* Alinea verticalmente la imagen y el texto */
+        background-color: rgb(222, 204, 240);
+        border-radius: 10px;
+        padding: 15px 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        gap: 15px; /* Espacio entre la imagen y el texto */
+        }
+
+        .information p1 {
+        font-size: 18px;
+        line-height: 1.5;
+        width: 600px;
+        max-width: 80%;
+        text-align: left; /* Asegura que el texto se lea bien junto a la imagen */
+        margin: 10px auto; 
+        display: flex;
+        flex-direction: row; /* Coloca la imagen y el texto en línea */
+        align-items: center; /* Alinea verticalmente la imagen y el texto */
+        background-color: rgb(222, 204, 240);
+        border-radius: 10px;
+        padding: 15px 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        gap: 15px; /* Espacio entre la imagen y el texto */
+        }
+
+/* Estilos para la imagen dentro del párrafo */
+        .information p img {
+         width: 200px; /* Ajusta el tamaño de la imagen */
+        height: 200px; /* Mantiene la proporción */
+        
+        object-fit: cover; /* Asegura que la imagen se recorte bien */
+        }
+
+        .information-1 {
+        display: flex;
+        flex-direction: row; /* Asegura que los elementos estén en fila */
+        align-items: center; /* Centra todo horizontalmente */
+        justify-content: center; /* Centra verticalmente si el contenedor tiene altura definida */
+        gap: 40px; /* Espacio entre los elementos */
+        }
+
+
+        
         .quote {
             text-align: center;
             padding: 50px 20px;
@@ -125,6 +202,8 @@
             background: #222;
             color: white;
             padding: 20px;
+            display: flex;
+            justify-content: bottom;
         }
 
     </style>
@@ -140,25 +219,42 @@
         
         <nav>
             <ul>
-                <li><a href="#home">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="#benefits">Quienes somos</a></li>
-                <li><a href="#quote">Servicios</a></li>
-                <li><a href="#contact">Contacto</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home" class="hero">
         <h1>¿Riesgos? Mi espacio seguro te cubre la espalda</h1>
+        <a href="#quote" class="btn">Obtén tu cotización</a>
     </section>
 
     <section id="benefits" class="benefits">
-        <h2>Beneficios de nuestros seguros</h2>
         <div class="benefit-list">
-            <div class="benefit">✅ Cobertura médica integral</div>
-            <div class="benefit">✅ Atención las 24 horas</div>
-            <div class="benefit">✅ Flexibilidad en planes</div>
-            <div class="benefit">✅ Asesoramiento personalizado</div>
+            <div class="benefit-2">
+                <img src="https://cdn-icons-png.flaticon.com/512/1208/1208275.png" height="100px" width="100px" alt="Seguro de vida">
+                <div class="benefit">El seguro de incendio es obligatorio para los condominios habitacionales, de acuerdo a la ley 21.442.</div>
+            </div>
+            <div class="benefit-3">
+                <img src="https://www.iconpacks.net/icons/1/free-building-icon-1062-thumb.png" height="100px" width="100px" alt="Seguro de vida">
+                <div class="benefit">Los espacios comunes de un edifico constituyen de un 60% a 80% de este mismo</div>
+            </div>
+            <div class="benefit-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/3142/3142603.png" height="100px" width="100px" alt="Seguro de vida">
+                <div class="benefit">Todos los meses este seguro se manifiesta en los gastos comunes, pagados por los residentes del complejo residencial.</div>
+            </div>  
+        </div>
+    </section>
+    <section>
+        <div class="information">
+        <h1> Tu tranquilidad, nuestra prioridad</h1>
+        <div class="information-1">
+        <p><img src="https://cdn.inxur.com/wp-content/uploads/professional-adviser-explaining-house-ownership-an-2023-11-27-05-14-41-utc-1024x640.jpg" height="200px" width="200px"> En Corredores de Seguros Espacioseguro SPA nos preocupamos por resguardar la salud de toda tu comunidad. Somos una compania de seguros espacializados en responsabilidad civil y edificios residenciales, pero tambien contamos con una amplia gama de servicios de riesgos.</p>
+        <p1><img src="https://climalit.es/blog/wp-content/uploads/2018/05/edificios-eficientes-1280x1280.jpg" height="200px" width="200px">"Ante las adversidades del la civilizacion contemporanea, lo mas recomendable es mantener la seguridad y tener la garantia de un bienestar comun.  No hay nada como velar por nosotros de forma eficaz y eficiente"</p1>
+        </div>
         </div>
     </section>
 
@@ -201,8 +297,8 @@
     </section>
 
     <footer id="contact">
-        <p>📍 Dirección: Av. Seguros 123, Ciudad</p>
-        <p>📧 Email: contacto@protegeplus.com</p>
+        <p>📍 Dirección: Espacioseguro 10, Santiago, Chile</p>
+        <p>📧 Email: contacto@miespacioseguro.com</p>
         <p>📞 Teléfono: +123 456 789</p>
     </footer>
 </body>

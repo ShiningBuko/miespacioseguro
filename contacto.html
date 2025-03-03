@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Seguros Protege+</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }   
+        header {
+            background: #ffffff;
+            color: rgb(34, 172, 103);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .logo img {
+            width: 150px;
+            height: 50px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: rgb(189, 98, 166);
+            text-decoration: none;
+            font-size: 16px;
+        }
+        nav ul li a:hover {
+            color: rgb(0, 0, 0);
+        }
+
+        /* Sección de Contacto */
+        .contact-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            padding: 50px 20px;
+            text-align: center;
+
+        }
+        .contact-form, .contact-info {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 40%;
+            max-width: 400px;
+            text-align: left;
+        }
+        .contact-form h2, .contact-info h2 {
+            text-align: center;
+        }
+        .contact-form input, .contact-form textarea, .contact-form button {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background: rgb(189, 98, 166);
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        .contact-form button:hover {
+            background: rgb(156, 80, 137);
+        }
+
+        footer {
+         display: flex;
+         justify-content: center;
+          text-align: center;
+          background: #222;
+          color: white;
+         padding: 20px;
+         margin-top: 40px;
+        }   
+
+        main {
+            flex: 1;
+        }
+        
+        
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .contact-form, .contact-info {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/segtu.png" alt="logo"></a>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#benefits">Quiénes somos</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Contacto -->
+    <section class="contact-container">
+        <!-- Formulario de Contacto -->
+        <div class="contact-form">
+            <h2>Envíanos un Mensaje</h2>
+            <form id="contactForm">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+            <p id="contactMessage"></p>
+        </div>
+
+        <!-- Información de Contacto -->
+        <div class="contact-info">
+            <h2>Datos de Contacto</h2>
+            <p>📍 Dirección: Espacioseguro 10, Santiago, Chile</p>
+            <p>📧 Email: contacto@miespacioseguro.com</p>
+            <p>📞 Teléfono: +123 456 789</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Seguros Protege+ | Todos los derechos reservados</p>
+    </footer>
+
+    <!-- Script para enviar email con EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("TU_USER_ID"); // Reemplaza con tu User ID de EmailJS
+        })();
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            emailjs.sendForm("TU_SERVICE_ID", "TU_TEMPLATE_ID", this)
+            .then(function(response) {
+                document.getElementById("contactMessage").innerText = "✅ Mensaje enviado con éxito!";
+            }, function(error) {
+                document.getElementById("contactMessage").innerText = "❌ Error al enviar el mensaje.";
+            });
+        });
+    </script>
+</body>
+</html>
